@@ -1,0 +1,27 @@
+@import 'src/assets/styles/_colors.scss';
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    ul {
+        display: flex;
+        gap: 10px;
+        li {
+            cursor: pointer;
+            padding: 5px;
+            list-style: none;
+            border: 2px solid $color-default-black;
+            border-radius: 5px;
+            color: $color-default-black;
+            background-color: $color-default-green-logo;
+            box-shadow: $shadow-default-black;            
+        }
+    }
+}
+
+.logo {
+    height: 100px;
+}
