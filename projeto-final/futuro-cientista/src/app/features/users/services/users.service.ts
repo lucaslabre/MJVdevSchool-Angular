@@ -6,42 +6,48 @@ import { User } from '../model/user.model';
 })
 export class UsersService {
 
-  users: Array<User> = [
+  private users: Array<User> = [
     {
       id: 1,
       name: 'Lucas',
       email: 'lucaslabre@gmail.com',
-      image: 'https://media-exp1.licdn.com/dms/image/C4D03AQGDVUV9K4qZgA/profile-displayphoto-shrink_200_200/0/1546463746505?e=1628726400&v=beta&t=Ts7PBMU4Oalqj2qrIiRtyXrh3EP2b19CMkVKYMOo_dw'
+      image: 'http://www.escolapaideia.com.br/img/professores.png',
+      userType: "teacher"
     },
     {
       id: 2,
       name: 'João',
       email: 'joao@gmail.com',
-      image: ''
+      image: 'http://www.escolapaideia.com.br/img/aluno.png',
+      userType: "student"
     },
     {
       id: 3,
       name: 'Thayna',
       email: 'thayna@gmail.com',
-      image: ''
+      image: 'http://www.escolapaideia.com.br/img/aluno.png',
+      userType: "student"
     },
     {
       id: 4,
       name: 'Matheus',
       email: 'matheus@gmail.com',
-      image: ''
+      image: 'http://www.escolapaideia.com.br/img/aluno.png',
+      userType: "student"
     },
     {
       id: 5,
       name: 'Luana',
       email: 'luana@gmail.com',
-      image: ''
+      image: 'http://www.escolapaideia.com.br/img/aluno.png',
+      userType: "student"
     },
     {
       id: 6,
       name: 'William',
       email: 'will@gmail.com',
-      image: ''
+      image: 'http://www.escolapaideia.com.br/img/aluno.png',
+      userType: "student"
     }
   ];
 
@@ -50,6 +56,19 @@ export class UsersService {
   getUsers(){
     return this.users;
   }
+
+  getUserByName(name: string){
+    return this.getUsers().filter((user) => user.name.toUpperCase().search(name.toUpperCase()) > -1);
+  }
+
+  getTeachers(){
+    return this.getUsers().filter((user) => user.userType === "teacher");
+  }
+
+  getStudents(){
+    return this.getUsers().filter((user) => user.userType === "student");
+  }
+
 
   // getUserById(id: number){
   //   return this.users.find((user) => user.id === id);

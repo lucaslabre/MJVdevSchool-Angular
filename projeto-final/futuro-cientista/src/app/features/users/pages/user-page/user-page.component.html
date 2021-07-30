@@ -1,3 +1,14 @@
 <app-header></app-header>
-    <app-user-list [users]='users'></app-user-list>
+<div class="search">
+    <h1 appGreen>Membros</h1>
+    <input type="text" class="btn" placeholder="Busque o membro" (input)="findUserByFilter($event , 'name')" >
+    <div class="checkbox">
+        <input type="checkbox" id="teacher" 
+        (input)="findUserByFilter($event, 'teacher')" 
+        ><label for="teacher">Professor</label>
+        <input type="checkbox" id="student"
+        (input)="findUserByFilter($event, 'student')"><label for="student">Aluno</label>
+    </div>
+</div>
+    <app-user-list [users]='filteredUsers'></app-user-list>
 <app-footer></app-footer>
