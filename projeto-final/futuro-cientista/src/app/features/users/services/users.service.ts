@@ -24,6 +24,24 @@ export class UsersService {
       name: 'Thayna',
       email: 'thayna@gmail.com',
       image: ''
+    },
+    {
+      id: 4,
+      name: 'Matheus',
+      email: 'matheus@gmail.com',
+      image: ''
+    },
+    {
+      id: 5,
+      name: 'Luana',
+      email: 'luana@gmail.com',
+      image: ''
+    },
+    {
+      id: 6,
+      name: 'William',
+      email: 'will@gmail.com',
+      image: ''
     }
   ];
 

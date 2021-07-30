@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './features/users/users.module';
 import { LoginModule } from './features/login/login.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginModule } from './features/login/login.module';
     AppRoutingModule,
     SharedModule,
     UsersModule,
-    LoginModule
+    LoginModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,17 @@
 <div class="container">
-    <h1 appGreen>Membros</h1>
-    <app-user
-    *ngFor='let item of users'
-    [user]='item'></app-user>
+    <div class="search">
+        <h1 appGreen>Membros</h1>
+        <input type="text" class="btn" placeholder="Busque o membro">
+    </div>
+    
+    <div class="users-list">
+        <app-user
+        *ngFor="let item of users"
+        [user]="item"></app-user>
+    </div>
+
+    <div class="user-not-finded" *ngIf="users.length===0">
+        <span>Membro não encontrado!</span>
+    </div>
+
 </div>
