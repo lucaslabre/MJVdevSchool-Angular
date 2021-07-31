@@ -1,0 +1,227 @@
+@import 'src/assets/styles/_colors.scss';
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    align-items: center;
+}
+
+.content {
+    background-color: bisque;
+    border-radius: 15px;
+    width: 960px;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: $shadow-default-black;
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    background-color: $color-default-green-logo;
+    width: 40%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: $shadow-default-black;
+
+
+    left: 0%;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.title-primary {
+    color: $color-default-white;
+}
+
+.title-second {
+    color: $color-default-green-logo;
+}
+
+.description {
+    font-size: 14px;
+    font-weight: 300;
+    color: $color-default-white;
+    line-height: 30px;
+}
+
+.description-primary {
+    color: $color-default-black;
+}
+
+.description-second {
+    color: $color-default-grey;
+}
+
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: $color-default-white;
+    font-size: 10px;
+    padding: 10px ;
+    cursor: pointer;
+    font-weight: bold;
+    width: 150px;
+    align-self: center;
+    border: none;
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid $color-default-white;
+    transition: background-color .5s;
+}
+
+.btn-second {
+    background-color: $color-default-green-logo;
+    border: 1px solid $color-default-green-logo;
+    transition: background-color .5s;
+}
+
+.btn-second:hover {
+    background-color: $color-default-white;
+    border: 1px solid $color-default-green-logo;
+    color: $color-default-green-logo;
+}
+
+.btn-primary:hover {
+    background-color: $color-default-white;
+    border: 1px solid $color-default-black;
+    color: $color-default-green-logo;
+}
+
+.first-content {
+    //display:flex;
+    // display: none;
+}
+
+.first-content .second-column {
+    z-index: 11;
+}
+
+.first-column {
+    text-align: center;
+    width: 40%;
+    // flex: 1 0 auto;
+    z-index: 10;
+}
+
+.second-column {
+    // flex: 2 0 auto;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social-media {
+    margin: 1rem 0;
+}
+
+.link-social-media:not(:first-child){
+    margin-left: 10px;
+}
+
+.link-social-media:hover .item-social-media{
+    background-color: $color-default-grey;
+    color: $color-default-white;
+}
+
+.link-social-media .item-social-media {
+    transition: background-color .5s;
+}
+
+.list-social-media {
+    display: flex;
+    list-style: none;
+}
+
+.item-social-media {
+    border: 1px solid $color-default-grey;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: $color-default-grey;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.form input {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: $color-default-white;
+    outline: none;
+}
+
+.label-input {
+    background-color: $color-default-white;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+}
+
+.icon-modify {
+    color: $color-default-grey;
+    padding: 0 10px;
+}
+
+/* second content */
+
+.second-content {
+    position: absolute;
+    display: flex;
+}
+
+// .second-content .first-column {
+//     order: 2;
+//     z-index: -1;
+//     // opacity: 0;
+// }
+
+// .second-content .second-column {
+//     order: 1;
+//     z-index: -1;
+//     // opacity: 0;
+// }
+
+.password {
+    color: $color-default-black;
+    font-size: 14px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.password::first-letter {
+    text-transform: capitalize;
+}
+
+// .sign-in-js .first-content .first-column,
+// .sign-in-js .first-content .second-column {
+//     z-index: -1;
+// }
+
+// .sign-in-js .second-content .first-column,
+// .sign-in-js .second-content .second-column {
+//     z-index: 11;
+// }
+
+// .sign-in-js .content::before {
+//     left: 60%;
+// }
