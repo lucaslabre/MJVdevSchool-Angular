@@ -3,5 +3,5 @@
     <span> ID: {{ user.id }} </span>
     <span> Nome: {{ user.name }} </span>
     <span> Usuário: {{ user.userType === "teacher" ? "Professor" : "Aluno"}} </span>
-    <button class="btn" [routerLink]="['/user-details',user.id]">Detalhes</button>
+    <button class="btn" [routerLink]="['/user-details',user.id]" *ngIf="!details">Detalhes</button>
 </div>

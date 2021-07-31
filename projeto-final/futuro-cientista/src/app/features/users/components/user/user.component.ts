@@ -10,6 +10,8 @@ export class UserComponent implements OnInit {
 
   @Input()
   user?: User;
+  @Input()
+  details: boolean = false;
 
   constructor() { }
 
