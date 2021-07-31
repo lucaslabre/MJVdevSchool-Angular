@@ -1,3 +1,52 @@
 <app-header></app-header>
-    <app-login></app-login>
+
+<div class="container">
+    <div class="content second-content">
+        <div class="first-column">
+            <h2 class="title title-primary">Olá, Futuro Cientista!</h2>
+            <p class="description description-primary">Crie uma conta com seus dados pessoais</p>
+            <p class="description description-primary">e comece sua jornada conosco!</p>
+            <button class="btn btn-primary" routerLink="/register">Cadastrar</button>
+        </div>
+        <div class="second-column">
+            <h2 class="title title-second">Entrar com sua conta</h2>
+            <div class="social-media">
+                <ul class="list-social-media">
+                    <a class="link-social-media" href="#">
+                        <li class="item-social-media">
+                            <fa-icon [icon]='faFacebookF'></fa-icon>
+                        </li>
+                    </a>
+                    <a class="link-social-media" href="#">
+                        <li class="item-social-media">
+                            <fa-icon [icon]='faGooglePlusG'></fa-icon>
+                        </li>
+                    </a>
+                    <a class="link-social-media" href="#">
+                        <li class="item-social-media">
+                            <fa-icon [icon]='faLinkedinIn'></fa-icon>
+                        </li>
+                    </a>
+                </ul>
+            </div> <!-- social media -->
+            <p class="description description-second">ou utilize seu e-mail para entrar:</p>
+    
+            {{ loginForm.value | json }}
+            {{ loginForm.value.email }}
+            <form #loginForm="ngForm" class="form">
+                <label class="label-input" for="">
+                    <fa-icon class="icon-modify" [icon]='faEnvelope'></fa-icon>
+                    <input ngModel name="email" type="email" placeholder="Email">
+                </label>
+                <label class="label-input" for="">
+                    <fa-icon class="icon-modify" [icon]='faLock'></fa-icon>
+                    <input ngModel name="password" type="password" placeholder="Senha">
+                </label>
+                <a class="password" href="#">Esqueceu sua senha?</a>
+                <button name="submit" class="btn btn-second">Entrar</button>
+            </form>
+        </div> <!-- second colunm -->
+    </div> <!-- second-content -->
+</div>
+
 <app-footer></app-footer>
