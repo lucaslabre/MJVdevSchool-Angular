@@ -5,6 +5,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { UserDetailsPageComponent } from './pages/user-details-page/user-details-page.component';
 
 
 
@@ -12,7 +13,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     UserComponent,
     UserListComponent,
-    UserPageComponent
+    UserPageComponent,
+    UserDetailsPageComponent
   ],
   imports: [
     CommonModule,

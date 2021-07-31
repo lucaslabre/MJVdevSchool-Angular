@@ -11,6 +11,8 @@ export class UserListComponent implements OnInit {
 
   @Input()
   users: Array<User> = [];
+  @Input()
+  details: boolean = false;
 
   constructor() { }
 

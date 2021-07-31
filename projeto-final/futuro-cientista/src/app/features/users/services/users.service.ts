@@ -69,6 +69,10 @@ export class UsersService {
     return this.getUsers().filter((user) => user.userType === "student");
   }
 
+  getUserById(id: number){
+    return this.getUsers().find((user) => user.id === Number(id));
+  }
+
 
   // getUserById(id: number){
   //   return this.users.find((user) => user.id === id);

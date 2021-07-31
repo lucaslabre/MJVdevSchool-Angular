@@ -33,9 +33,9 @@ export class UserPageComponent implements OnInit {
       if (checked && type === "student") {
         this.filteredUsers = this.usersService.getStudents();
       }
-      if (!checked) {
-        this.filteredUsers = this.usersService.getUsers();
-      }
+      // if (!checked) {
+      //   this.filteredUsers = this.usersService.getUsers();
+      // }
     }
   }
 
