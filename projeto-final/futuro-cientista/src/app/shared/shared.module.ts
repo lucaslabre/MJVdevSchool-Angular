@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { GreenDirective } from './directives/green.directive';
+import { CpfPipe } from './pipes/cpf.pipe';
 
 const components = [
   HeaderComponent,
@@ -12,13 +13,13 @@ const components = [
 
 const directives = [GreenDirective];
 
-const pipes = [];
+const pipes = [CpfPipe];
 
 @NgModule({
   declarations: [
     ...components,
-    ...directives
-    // ...pipes
+    ...directives,
+    ...pipes,
   ],
   imports: [
     CommonModule,
@@ -26,8 +27,8 @@ const pipes = [];
   ],
   exports: [
     ...components,
-    ...directives
-    // ...pipes
+    ...directives,
+    ...pipes
   ]
 })
 export class SharedModule { }
