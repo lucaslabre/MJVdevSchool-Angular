@@ -62,6 +62,12 @@
     color: $color-default-grey;
 }
 
+.login-error {
+    text-align: center;
+    font-size: 12px;
+    color: $color-default-alert;
+}
+
 .btn {
     border-radius: 15px;
     text-transform: uppercase;

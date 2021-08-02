@@ -11,43 +11,51 @@ export class UsersService {
       id: 1,
       name: 'Lucas',
       email: 'lucaslabre@gmail.com',
+      password: "123",
+      inclusionDate: "2021-04-01",
       image: 'http://www.escolapaideia.com.br/img/professores.png',
-      userType: "teacher"
+      userType: "teacher",
+      validRegistration: true
     },
     {
       id: 2,
-      name: 'João',
+      name: 'William',
       email: 'joao@gmail.com',
+      password: "123",
+      inclusionDate: "2021-07-12",
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
-      userType: "student"
+      userType: "student",
+      validRegistration: true
     },
     {
       id: 3,
       name: 'Thayna',
       email: 'thayna@gmail.com',
+      password: "123",
+      inclusionDate: "2021-05-20",
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
-      userType: "student"
+      userType: "student",
+      validRegistration: true
     },
     {
       id: 4,
       name: 'Matheus',
       email: 'matheus@gmail.com',
+      password: "123",
+      inclusionDate: "2021-06-21",
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
-      userType: "student"
+      userType: "student",
+      validRegistration: false
     },
     {
       id: 5,
       name: 'Luana',
       email: 'luana@gmail.com',
+      password: "123",
+      inclusionDate: "2021-08-01",
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
-      userType: "student"
-    },
-    {
-      id: 6,
-      name: 'William',
-      email: 'will@gmail.com',
-      image: 'http://www.escolapaideia.com.br/img/aluno.png',
-      userType: "student"
+      userType: "student",
+      validRegistration: true
     }
   ];
 
@@ -57,8 +65,20 @@ export class UsersService {
     return this.users;
   }
 
+  getUserByEmailAndPassword(email: string, password: string){
+    return this.getUsers().find((user) => user.email === email && user.password === password);
+  }
+
+  getUserById(id: number){
+    return this.getUsers().find((user) => user.id === Number(id));
+  }
+
   getUserByName(name: string){
     return this.getUsers().filter((user) => user.name.toUpperCase().search(name.toUpperCase()) > -1);
+  }
+
+  getUsersByType(type: "teacher" | "student"){
+    return type === "teacher" ? this.getTeachers() : this.getStudents();
   }
 
   getTeachers(){
@@ -68,14 +88,5 @@ export class UsersService {
   getStudents(){
     return this.getUsers().filter((user) => user.userType === "student");
   }
-
-  getUserById(id: number){
-    return this.getUsers().find((user) => user.id === Number(id));
-  }
-
-
-  // getUserById(id: number){
-  //   return this.users.find((user) => user.id === id);
-  // }
 
 }

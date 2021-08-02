@@ -43,7 +43,11 @@
                     <input ngModel name="password" type="password" placeholder="Senha" required>
                 </label>
                 <a class="password" href="#">Esqueceu sua senha?</a>
-                <button name="submit" class="btn btn-second" [disabled]="loginForm.valid">Entrar</button>
+                <p class="login-error" *ngIf="error">login ou senha incorretos!</p>
+                <button (click)="validateUser(loginForm)" 
+                    name="submit" 
+                    class="btn btn-second" 
+                    [disabled]="!loginForm.valid">Entrar</button>
             </form>
         </div> <!-- second colunm -->
     </div> <!-- second-content -->
