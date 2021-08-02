@@ -4,10 +4,10 @@
     <input type="text" class="btn" placeholder="Busque o membro" (input)="findUserByFilter($event , 'name')" >
     <div class="checkbox">
         <input type="checkbox" id="teacher" 
-        (input)="findUserByFilter($event, 'teacher')" 
+        (input)="filterByCheckbox($event,'teacher')"
         ><label for="teacher">Professor</label>
         <input type="checkbox" id="student"
-        (input)="findUserByFilter($event, 'student')"><label for="student">Aluno</label>
+        (input)="filterByCheckbox($event,'student')"><label for="student">Aluno</label>
     </div>
 </div>
     <app-user-list [users]='filteredUsers'></app-user-list>

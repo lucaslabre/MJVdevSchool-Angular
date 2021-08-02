@@ -33,10 +33,16 @@ export class UserPageComponent implements OnInit {
       if (checked && type === "student") {
         this.filteredUsers = this.usersService.getStudents();
       }
-      // if (!checked) {
-      //   this.filteredUsers = this.usersService.getUsers();
-      // }
     }
+  }
+
+  filterByCheckbox(event: any, type: string){
+    console.log(event.target.checked);
+    const check = event.target.checked;
+    if (check) {
+      return this.filteredUsers = this.filteredUsers.filter((student) => student.userType === type);
+    }
+    return this.filteredUsers = this.usersService.getUsers();
   }
 
 }
