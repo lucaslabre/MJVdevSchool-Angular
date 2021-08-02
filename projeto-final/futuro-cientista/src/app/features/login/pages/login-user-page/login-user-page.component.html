@@ -36,14 +36,14 @@
             <form #loginForm="ngForm" class="form">
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faEnvelope'></fa-icon>
-                    <input ngModel name="email" type="email" placeholder="Email">
+                    <input ngModel name="email" type="email" placeholder="Email" required>
                 </label>
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faLock'></fa-icon>
-                    <input ngModel name="password" type="password" placeholder="Senha">
+                    <input ngModel name="password" type="password" placeholder="Senha" required>
                 </label>
                 <a class="password" href="#">Esqueceu sua senha?</a>
-                <button name="submit" class="btn btn-second">Entrar</button>
+                <button name="submit" class="btn btn-second" [disabled]="loginForm.valid">Entrar</button>
             </form>
         </div> <!-- second colunm -->
     </div> <!-- second-content -->
