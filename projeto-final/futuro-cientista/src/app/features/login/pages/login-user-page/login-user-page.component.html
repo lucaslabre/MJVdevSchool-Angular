@@ -31,7 +31,7 @@
             </div> <!-- social media -->
             <p class="description description-second">ou utilize seu e-mail para entrar:</p>
     
-            <form #loginForm="ngForm" class="form">
+            <form #loginForm="ngForm" class="form" (submit)="validateUser(loginForm)">
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faEnvelope'></fa-icon>
                     <input ngModel name="email" type="email" placeholder="Email" required>
@@ -42,8 +42,8 @@
                 </label>
                 <a class="password" href="#">Esqueceu sua senha?</a>
                 <p class="login-error" *ngIf="error">login ou senha incorretos!</p>
-                <button (click)="validateUser(loginForm)" 
-                    name="submit" 
+                <button  
+                    type="submit" 
                     class="btn btn-second" 
                     [disabled]="!loginForm.valid">Entrar</button>
             </form>

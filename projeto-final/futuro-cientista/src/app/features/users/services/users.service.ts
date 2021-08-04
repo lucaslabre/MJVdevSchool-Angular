@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,20 @@ export class UsersService {
 
   constructor() { }
 
+  getDefaultStudent(): User{
+    const dateToday = moment().format('YYY/MM/DD');
+    return {
+      id: this.generateNextId(),
+      name: '',
+      email: '',
+      password: '',
+      inclusionDate: dateToday,
+      image: '',
+      userType: 'student',
+      validRegistration: true
+    }
+  }
+
   getUsers(){
     return this.users;
   }
@@ -87,6 +102,10 @@ export class UsersService {
 
   getStudents(){
     return this.getUsers().filter((user) => user.userType === "student");
+  }
+
+  generateNextId(): number{
+    return 1;
   }
 
 }

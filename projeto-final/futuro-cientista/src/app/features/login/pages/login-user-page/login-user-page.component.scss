@@ -94,6 +94,16 @@
     transition: background-color .5s;
 }
 
+button:disabled {
+    background-color: #ccc;
+    color: $color-default-white;
+}
+
+button:disabled:hover {
+    background-color: #ccc;
+    color: $color-default-white;
+}
+
 .btn-second:hover {
     background-color: $color-default-white;
     border: 1px solid $color-default-green-logo;

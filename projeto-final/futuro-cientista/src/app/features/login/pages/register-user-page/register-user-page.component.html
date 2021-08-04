@@ -30,20 +30,23 @@
                 </ul>
             </div> <!-- social media -->
             <p class="description description-second">ou utilize seu e-mail para registrar:</p>
-            <form class="form">
+            <form #registerForm="ngForm" class="form">
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faUser'></fa-icon>
-                    <input type="text" placeholder="Nome">
+                    <input ngModel name="name" type="text" placeholder="Nome" required>
                 </label>
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faEnvelope'></fa-icon>
-                    <input type="email" placeholder="Email">
+                    <input ngModel name="email" type="email" placeholder="Email" required>
                 </label>
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faLock'></fa-icon>
-                    <input type="password" placeholder="Senha">
+                    <input ngModel name="password" type="password" placeholder="Senha" required>
                 </label>
-                <button class="btn btn-second" routerLink="/register">Registrar</button>
+                <button 
+                class="btn btn-second" 
+                [disabled]="!registerForm.valid"
+                >Registrar</button>
             </form>
         </div> <!-- second colunm -->
     </div> <!-- first-content -->

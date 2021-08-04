@@ -2,7 +2,7 @@
     <img class="logo" src="assets\images\futuro-cientista-logo.jpg" alt="LOGO">
     <h3 *ngIf="currentUser">Olá, {{ currentUser.name }}</h3>
     <ul>
-        <li (click)="navigateByUrl('users')">Home</li>
+        <li *ngIf="currentUser" (click)="navigateByUrl('users')">Home</li>
         <li *ngIf="!currentUser" routerLink="/login">Login</li>
         <li *ngIf="!currentUser" routerLink="/register">Cadastro</li>
         <li *ngIf="currentUser" (click)="exit()">Sair</li>
