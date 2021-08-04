@@ -40,8 +40,8 @@
                     <input ngModel name="email" type="email" placeholder="Email" required>
                 </label>
                 <label class="label-input" for="">
-                    <fa-icon class="icon-modify" [icon]='faLock'></fa-icon>
-                    <input ngModel name="password" type="password" placeholder="Senha" required>
+                    <fa-icon (click)="locked()" class="icon-modify" [icon]='faLockIcon'></fa-icon>
+                    <input ngModel name="password" [type]="type" placeholder="Senha" required>
                 </label>
                 <button 
                 class="btn btn-second" 

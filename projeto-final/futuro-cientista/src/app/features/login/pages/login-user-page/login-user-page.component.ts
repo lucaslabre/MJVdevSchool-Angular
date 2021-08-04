@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faFacebookF, faGooglePlusG, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faUnlockAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from 'src/app/features/users/services/users.service';
 
 @Component({
@@ -16,10 +16,11 @@ export class LoginUserPageComponent implements OnInit {
   faLinkedinIn = faLinkedinIn;
   faUser = faUser;
   faEnvelope = faEnvelope;
-  faLock = faLock;
+  lockIcon = faLock;
 
   error: boolean = false;
-
+  type: string = "password";
+  
   constructor(
     private usersService: UsersService,
     private router: Router
@@ -35,6 +36,15 @@ export class LoginUserPageComponent implements OnInit {
     }
     this.router.navigateByUrl('/users');
     return sessionStorage.setItem('currentUser', JSON.stringify(user));
+  }
+
+  locked(){
+    if ( this.lockIcon === faLock ){
+      this.type = "text";
+      return this.lockIcon = faUnlockAlt;
+    }
+    this.type = "password";
+    return this.lockIcon = faLock;
   }
 
 }
