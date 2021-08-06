@@ -30,28 +30,28 @@
                 </ul>
             </div> <!-- social media -->
             <p class="description description-second">ou utilize seu e-mail para registrar:</p>
-            <form #registerForm="ngForm" class="form" (submit)="onSubmit(registerForm)">
+            <form #registerForm="ngForm" class="form">
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faUser'></fa-icon>
-                    <input [(ngModel)]="user.name" name="name" type="text" placeholder="Nome" required>
+                    <input ngModel name="name" type="text" placeholder="Nome" required>
                 </label>
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faEnvelope'></fa-icon>
-                    <input [(ngModel)]="user.email" name="email" type="email" placeholder="Email" required>
+                    <input ngModel name="email" type="email" placeholder="Email" required>
                 </label>
                 <label class="label-input" for="">
                     <fa-icon (click)="locked()" class="icon-modify" [icon]='faLockIcon'></fa-icon>
-                    <input [(ngModel)]="user.password" name="password" [type]="type" placeholder="Senha" required>
+                    <input ngModel name="password" [type]="type" placeholder="Senha" required>
                 </label>
                 <div class="radio">
-                    <input  type="radio" name="userType" id="teacher"> <label for="teacher">Professor</label>
-                    <input  type="radio" name="userType" id="student"> <label for="student">Estudante</label>
+                    <input ngModel type="radio" name="userType" id="teacher"> <label for="teacher">Professor</label>
+                    <input ngModel type="radio" name="userType" id="student"> <label for="student">Estudante</label>
                 </div>
 
                 <span *ngIf='invalidRegistry' class="login-error">Email já cadastrado!</span>
-                <button type="submit"
+                <button 
                 class="btn btn-second" 
-                [disabled]="registerForm.invalid"
+                [disabled]="!registerForm.valid"
                 (click)="validRegister(registerForm)"
                 >Registrar</button>
             </form>

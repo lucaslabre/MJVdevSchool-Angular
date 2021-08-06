@@ -63,17 +63,17 @@ export class UsersService {
   constructor() { }
 
   getDefaultStudent(): User{
-    const dateToday = moment().format('YYY/MM/DD');
-    return {
-      id: this.generateNextId(),
-      name: '',
-      email: '',
-      password: '',
-      inclusionDate: dateToday,
-      image: '',
-      userType: 'student',
-      validRegistration: true
-    }
+    const dateToday = moment().format('YYYY/MM/DD');
+    return this.createUserObject(
+      this.generateNextId(),
+      '',
+      '',
+      '',
+      dateToday,
+      'http://www.escolapaideia.com.br/img/aluno.png',
+      'student',
+      true
+    )
   }
 
   getUsers(){
@@ -82,6 +82,10 @@ export class UsersService {
 
   getUserByEmailAndPassword(email: string, password: string){
     return this.getUsers().find((user) => user.email === email && user.password === password);
+  }
+
+  getUserByEmail(email: string){
+    return this.getUsers().find((user) => user.email === email);
   }
 
   getUserById(id: number){
@@ -104,8 +108,35 @@ export class UsersService {
     return this.getUsers().filter((user) => user.userType === "student");
   }
 
+  createUser(user: User){
+    this.users.push(user);
+    return this.users;
+  }
+  // short hand
+  createUserObject(
+    id: number,
+    name: string,
+    email: string,
+    password: string,
+    inclusionDate: Date | string,
+    image: string,
+    userType: "teacher" | "student",
+    validRegistration: boolean
+  ): User{
+    return {
+      id,
+      name,
+      email,
+      password,
+      inclusionDate,
+      image,
+      userType,
+      validRegistration
+    }
+  }
+
   generateNextId(): number{
-    return 1;
+    return this.users[(this.users.length - 1)].id + 1;
   }
 
 }

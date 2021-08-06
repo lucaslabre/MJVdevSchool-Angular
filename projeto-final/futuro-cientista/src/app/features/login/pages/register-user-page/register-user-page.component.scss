@@ -10,7 +10,7 @@
         background-color: bisque;
         border-radius: 15px;
         width: 960px;
-        height: 400px;
+        height: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -133,6 +133,7 @@ button:disabled {
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 20px 0;
 }
 
 .social-media {
@@ -180,6 +181,22 @@ button:disabled {
         border: none;
         background-color: $color-default-white;
         outline: none;
+    }
+
+    .radio {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        justify-content: center;
+        input {
+            width: 15px;
+            height: 15px;
+        }
+
+        label {
+            padding-right: 15px;
+        }
     }
 }
 

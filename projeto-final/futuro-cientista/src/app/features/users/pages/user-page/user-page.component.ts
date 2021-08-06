@@ -10,7 +10,6 @@ export class UserPageComponent implements OnInit {
 
   users: Array<User> = [];
   filteredUsers: Array<User> = [];
-  checked: boolean = false;
 
   constructor(private usersService: UsersService) { }
 
