@@ -135,6 +135,11 @@ export class UsersService {
     }
   }
 
+  removeUser(id: number){
+    const userIndex = this.users.findIndex((user) => user.id === Number(id));
+    this.users.splice(userIndex, 1);
+  }
+
   generateNextId(): number{
     return this.users[(this.users.length - 1)].id + 1;
   }
