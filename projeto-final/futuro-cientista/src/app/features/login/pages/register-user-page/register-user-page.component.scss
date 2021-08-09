@@ -207,6 +207,11 @@ button:disabled {
     margin: 8px;
 }
 
+.error {
+    color: $color-default-alert;
+    font-size: 12px;
+}
+
 .icon-modify {
     color: $color-default-grey;
     padding: 0 10px;

@@ -30,39 +30,32 @@
                 </ul>
             </div> <!-- social media -->
             <p class="description description-second">ou utilize seu e-mail para registrar:</p>
-            <form [formGroup]="userForm" class="form" (submit)="onSubmit(userForm)">
+            <form #registerForm="ngForm" class="form" (submit)="onSubmit(registerForm)">
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faUser'></fa-icon>
-                    <input formControlName="name" type="text" placeholder="Nome">
+                    <input [(ngModel)]="user.name" name="name" type="text" placeholder="Nome" required>
                 </label>
                 <label class="label-input" for="">
                     <fa-icon class="icon-modify" [icon]='faEnvelope'></fa-icon>
-                    <input formControlName="email" type="email" placeholder="Email">
-                </label>
-                <span class="login-error"
-                *ngIf="validRegister(userForm)">
-                Email já cadastrado</span>
-                <label class="label-input" for="">
-                    <fa-icon class="icon-modify" [icon]='faCalendar'></fa-icon>
-                    <input formControlName="inclusionDate" type="text" placeholder="Email">
+                    <input [(ngModel)]="user.email" name="email" type="email" placeholder="Email" required>
                 </label>
                 <label class="label-input" for="">
                     <fa-icon (click)="locked()" class="icon-modify" [icon]='faLockIcon'></fa-icon>
-                    <input formControlName="password" [type]="type" placeholder="Senha">
+                    <input [(ngModel)]="user.password" name="password" [type]="type" placeholder="Senha" required>
                 </label>
-                <span class="login-error"
-                *ngIf="userForm.controls.password.errors?.minlength">
-                A senha tem que possuir pelo menos 3 caracteres</span>
                 <div class="radio">
                     <input  type="radio" name="userType" id="teacher"> <label for="teacher">Professor</label>
                     <input  type="radio" name="userType" id="student"> <label for="student">Estudante</label>
                 </div>
-                
+
+                <span *ngIf='invalidRegistry' class="login-error">Email já cadastrado!</span>
                 <button type="submit"
                 class="btn btn-second" 
-                [disabled]="userForm.invalid"
+                [disabled]="registerForm.invalid"
+                (click)="validRegister(registerForm)"
                 >Registrar</button>
             </form>
+            {{ registerForm.value | json }}
         </div> <!-- second colunm -->
     </div> <!-- first-content -->
 </div>

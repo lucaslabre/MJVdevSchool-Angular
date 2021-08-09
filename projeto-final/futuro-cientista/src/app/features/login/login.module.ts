@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RegisterUserPageComponent } from './pages/register-user-page/register-user-page.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     RouterModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LoginModule { }

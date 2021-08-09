@@ -63,7 +63,8 @@ export class UsersService {
   constructor() { }
 
   getDefaultStudent(): User{
-    const dateToday = moment().format('YYYY/MM/DD');
+    const dateToday = moment().format('DD/MM/YYYY');
+    // const dateToday = moment().format('YYYY/MM/DD');
     return this.createUserObject(
       this.generateNextId(),
       '',
