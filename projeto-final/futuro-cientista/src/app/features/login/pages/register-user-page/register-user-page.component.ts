@@ -26,7 +26,7 @@ export class RegisterUserPageComponent implements OnInit {
 
   userForm = new FormGroup({
      name: new FormControl('', [Validators.required]),
-     email: new FormControl('', [Validators.required, Validators.email]),
+     email: new FormControl('', [Validators.required]),
      inclusionDate: new FormControl(this.user.inclusionDate),
      password: new FormControl('', [Validators.required, Validators.minLength(3)])
   });
@@ -54,6 +54,7 @@ export class RegisterUserPageComponent implements OnInit {
     if (this.usersService.getUserByEmail(value.email)) {
       return this.invalidRegistry = true;
     }
+    this.invalidRegistry = false;
     // this.router.navigateByUrl("/login");
     return sessionStorage.setItem(value.name, JSON.stringify(value));
   }

@@ -60,7 +60,7 @@
                 
                 <button type="submit"
                 class="btn btn-second" 
-                [disabled]="userForm.invalid"
+                [disabled]="userForm.invalid || invalidRegistry"
                 >Registrar</button>
             </form>
         </div> <!-- second colunm -->

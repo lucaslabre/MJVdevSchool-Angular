@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './features/users/users.module';
 import { LoginModule } from './features/login/login.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SharedModule,
     UsersModule,
     LoginModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
