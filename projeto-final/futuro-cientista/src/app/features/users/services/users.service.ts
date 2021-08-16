@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
 import * as moment from 'moment';
+import { Package } from '../model/package.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,8 @@ export class UsersService {
       inclusionDate: "2021-07-12",
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
       userType: "student",
-      validRegistration: true
+      validRegistration: true,
+      // packageContrated: 1
     },
     {
       id: 3,
@@ -36,7 +38,8 @@ export class UsersService {
       inclusionDate: "2021-05-20",
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
       userType: "student",
-      validRegistration: true
+      validRegistration: true,
+      // packageContrated: 2 
     },
     {
       id: 4,
@@ -57,14 +60,23 @@ export class UsersService {
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
       userType: "student",
       validRegistration: true
+    },
+    {
+      id: 6,
+      name: 'Wesley',
+      email: 'wesley@gmail.com',
+      password: "123",
+      inclusionDate: "2021-08-01",
+      image: 'http://www.escolapaideia.com.br/img/professores.png',
+      userType: "teacher",
+      validRegistration: true
     }
   ];
 
-  constructor() { }
+  constructor(  ) { }
 
   getDefaultStudent(): User{
     const dateToday = moment().format('DD/MM/YYYY');
-    // const dateToday = moment().format('YYYY/MM/DD');
     return this.createUserObject(
       this.generateNextId(),
       '',
@@ -73,7 +85,8 @@ export class UsersService {
       dateToday,
       'http://www.escolapaideia.com.br/img/aluno.png',
       'student',
-      true
+      true,
+      []
     )
   }
 
@@ -122,7 +135,8 @@ export class UsersService {
     inclusionDate: Date | string,
     image: string,
     userType: "teacher" | "student",
-    validRegistration: boolean
+    validRegistration: boolean,
+    students: Array<User>
   ): User{
     return {
       id,
@@ -132,7 +146,8 @@ export class UsersService {
       inclusionDate,
       image,
       userType,
-      validRegistration
+      validRegistration,
+      students
     }
   }
 

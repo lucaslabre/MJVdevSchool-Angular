@@ -1,3 +1,5 @@
+import { Package } from "./package.model";
+
 export interface User {
     id: number;
     name: string;
@@ -6,5 +8,7 @@ export interface User {
     inclusionDate: Date | string;
     image?: string;
     userType: "teacher" | "student";
-    validRegistration: boolean
+    validRegistration: boolean,
+    students?: Array<User>
+    packageContrated?: Package
 }

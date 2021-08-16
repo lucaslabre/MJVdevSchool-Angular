@@ -10,14 +10,14 @@
             {{user.validRegistration ? 'Ativo' : 'Inativo'}}
             </mat-panel-description>
             <mat-panel-description class="content">
-                Aulas restantes
+                {{ user.userType }}
             </mat-panel-description>
         </mat-expansion-panel-header>
 
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Plano ouro
+                    {{ user.packageContrated }}
                 </mat-panel-title>
                 <mat-panel-description>
                     <span>faltam 2 aulas</span>
