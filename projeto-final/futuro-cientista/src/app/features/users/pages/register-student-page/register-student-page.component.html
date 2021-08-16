@@ -1,0 +1,72 @@
+<app-header></app-header>
+
+<div class="container">
+    <form class="center-form" >
+        <h2>Registro do aluno</h2>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <div class="lateral-direction">
+            <mat-form-field appearance="fill" class="right-space">
+                <mat-label>Plano</mat-label>
+                <mat-select>
+                    <mat-option 
+                    *ngFor="let plan of plans"
+                    [value]='plan.name'
+                    (onSelectionChange)="onSelectionPlan(plan, $event)"> {{ plan.name }} </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill" class="right-space">
+                <mat-label>Valor</mat-label>
+                <input matInput [value]="plan?.price">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Desconto</mat-label>
+                <input matInput [value]="plan?.discount">
+            </mat-form-field>
+        </div>
+
+        <div class="lateral-direction">
+            <mat-form-field appearance="fill" class="right-space">
+                <mat-label>Valor Total</mat-label>
+                <input matInput>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Data Início</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+
+        <div class="add-student-button">
+            <button mat-raised-button
+            type="submit">Adicionar Estudante</button>
+        </div>
+
+    </form>
+</div>
+
+
+
+<!-- <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput>
+</mat-form-field> -->
+<!-- <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+    </mat-select>
+</mat-form-field> -->
+<!-- <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput></textarea>
+</mat-form-field> -->
+
+<app-footer></app-footer>

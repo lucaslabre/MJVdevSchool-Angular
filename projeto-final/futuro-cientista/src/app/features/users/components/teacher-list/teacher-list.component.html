@@ -1,10 +1,13 @@
 
 <div class="container">
+
+    <button mat-raised-button class="add-student-button" 
+    (click)="addStudent()">adicionar aluno</button>
+    
     <div class="center">
         <app-teacher
         *ngFor="let user of userList"
         [user]="user"
         ></app-teacher>
-        
     </div>
 </div>

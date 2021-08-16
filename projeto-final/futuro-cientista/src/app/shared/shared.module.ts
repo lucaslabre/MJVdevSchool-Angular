@@ -19,13 +19,19 @@ registerLocaleData(localePt, 'pt');
  import {MatButtonModule} from '@angular/material/button';
  import {MatDividerModule} from '@angular/material/divider';
  import {MatMenuModule} from '@angular/material/menu';
+ import {MatFormFieldModule} from '@angular/material/form-field';
+ import {MatInputModule} from '@angular/material/input';
+ import {MatSelectModule} from '@angular/material/select';
 
  const materialModules = [
   MatExpansionModule,
   MatCardModule,
   MatButtonModule,
   MatDividerModule,
-  MatMenuModule
+  MatMenuModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule
  ]
 
 const components = [

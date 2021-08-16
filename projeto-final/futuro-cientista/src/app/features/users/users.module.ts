@@ -9,6 +9,7 @@ import { UserDetailsPageComponent } from './pages/user-details-page/user-details
 import { TeacherPageComponent } from './pages/teacher-page/teacher-page.component';
 import { TeacherListComponent } from './components/teacher-list/teacher-list.component';
 import { TeacherComponent } from './components/teacher/teacher.component';
+import { RegisterStudentPageComponent } from './pages/register-student-page/register-student-page.component';
 
 
 
@@ -20,7 +21,8 @@ import { TeacherComponent } from './components/teacher/teacher.component';
     UserDetailsPageComponent,
     TeacherPageComponent,
     TeacherListComponent,
-    TeacherComponent
+    TeacherComponent,
+    RegisterStudentPageComponent
   ],
   imports: [
     CommonModule,
