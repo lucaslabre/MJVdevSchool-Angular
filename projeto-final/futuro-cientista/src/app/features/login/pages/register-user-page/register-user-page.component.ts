@@ -28,7 +28,8 @@ export class RegisterUserPageComponent implements OnInit {
      name: new FormControl('', [Validators.required]),
      email: new FormControl('', [Validators.required]),
      inclusionDate: new FormControl(this.user.inclusionDate),
-     password: new FormControl('', [Validators.required, Validators.minLength(3)])
+     password: new FormControl('', [Validators.required, Validators.minLength(3)]),
+     userType: new FormControl('', [Validators.required])
   });
 
   constructor(
@@ -68,7 +69,7 @@ export class RegisterUserPageComponent implements OnInit {
       formValue.password, 
       this.user.inclusionDate,
       this.user.image='http://www.escolapaideia.com.br/img/aluno.png',
-      this.user.userType,
+      formValue.userType,
       this.user.validRegistration,
       this.user.students = []
     );

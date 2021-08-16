@@ -1,10 +1,24 @@
 <nav>
     <img class="logo" src="assets\images\futuro-cientista-logo.jpg" alt="LOGO">
+    <h3 *ngIf="currentUser" class="header-message">Olá, {{ currentUser.name }}</h3>
+    <button mat-button [matMenuTriggerFor]="beforeMenu">Menu</button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button mat-menu-item *ngIf="currentUser" (click)="navigateByUrl('users')">Home</button>
+        <button mat-menu-item *ngIf="currentUser" routerLink="/plans">Planos</button>
+        <button mat-menu-item *ngIf="!currentUser" routerLink="/login">Login</button>
+        <button mat-menu-item *ngIf="!currentUser" routerLink="/register">Cadastro</button>
+        <button mat-menu-item *ngIf="currentUser" (click)="exit()">Sair</button>
+    </mat-menu> 
+</nav>
+
+<!-- <nav>
+    <img class="logo" src="assets\images\futuro-cientista-logo.jpg" alt="LOGO">
     <h3 *ngIf="currentUser">Olá, {{ currentUser.name }}</h3>
     <ul>
         <li *ngIf="currentUser" (click)="navigateByUrl('users')">Home</li>
+        <li *ngIf="currentUser" routerLink="/plans">Planos</li>
         <li *ngIf="!currentUser" routerLink="/login">Login</li>
         <li *ngIf="!currentUser" routerLink="/register">Cadastro</li>
         <li *ngIf="currentUser" (click)="exit()">Sair</li>
     </ul>
-</nav>
+</nav> -->

@@ -6,6 +6,9 @@ nav {
     align-items: center;
     padding-left: 5%;
     padding-right: 5%;
+    .header-message{
+        text-transform: capitalize;
+    }
     ul {
         display: flex;
         gap: 10px;

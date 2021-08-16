@@ -54,8 +54,8 @@
                 *ngIf="userForm.controls.password.errors?.minlength">
                 A senha tem que possuir pelo menos 3 caracteres</span>
                 <div class="radio">
-                    <input  type="radio" name="userType" id="teacher"> <label for="teacher">Professor</label>
-                    <input  type="radio" name="userType" id="student"> <label for="student">Estudante</label>
+                    <input  type="radio" formControlName="userType" value="teacher"> <label for="teacher">Professor</label>
+                    <input  type="radio" formControlName="userType" value="student"> <label for="student">Estudante</label>
                 </div>
                 
                 <button type="submit"

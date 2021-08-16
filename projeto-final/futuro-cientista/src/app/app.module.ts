@@ -8,6 +8,8 @@ import { UsersModule } from './features/users/users.module';
 import { LoginModule } from './features/login/login.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PlansPageComponent } from './features/plans/pages/plans-page/plans-page.component';
+import { PlansModule } from './features/plans/plans.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UsersModule,
     LoginModule,
     FontAwesomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PlansModule
   ],
   providers: [],
   bootstrap: [AppComponent]
