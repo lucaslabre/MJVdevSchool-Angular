@@ -3,10 +3,10 @@
     <h3 *ngIf="currentUser" class="header-message">Olá, {{ currentUser.name }}</h3>
     <button mat-button [matMenuTriggerFor]="beforeMenu">Menu</button>
     <mat-menu #beforeMenu="matMenu" xPosition="before">
-        <button mat-menu-item *ngIf="currentUser" (click)="navigateByUrl('users')">Home</button>
-        <button mat-menu-item *ngIf="currentUser" routerLink="/plans">Planos</button>
+        <button mat-menu-item *ngIf="currentUser" routerLink="/users">Home</button>
         <button mat-menu-item *ngIf="!currentUser" routerLink="/login">Login</button>
         <button mat-menu-item *ngIf="!currentUser" routerLink="/register">Cadastro</button>
+        <button mat-menu-item routerLink="/plans">Planos</button>
         <button mat-menu-item *ngIf="currentUser" (click)="exit()">Sair</button>
     </mat-menu> 
 </nav>

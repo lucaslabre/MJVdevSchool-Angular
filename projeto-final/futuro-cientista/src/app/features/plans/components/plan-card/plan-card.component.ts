@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Plan } from '../../model/plan.model';
 
 @Component({
@@ -11,9 +12,19 @@ export class PlanCardComponent implements OnInit {
   @Input()
   plan?: Plan
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  isLoggedIn(){
+    const currentUser = sessionStorage.getItem('currentUser');
+    if (!currentUser) {
+       return this.router.navigateByUrl('/login');
+    }
+    return console.log(this.plan);
   }
 
 }

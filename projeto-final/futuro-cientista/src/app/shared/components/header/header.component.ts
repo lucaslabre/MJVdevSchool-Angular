@@ -18,10 +18,6 @@ export class HeaderComponent implements OnInit {
     if (userStorage) this.currentUser = JSON.parse(userStorage);
   }
 
-  navigateByUrl(url: string) {
-    this.router.navigateByUrl(url);  
-  }
-
   exit(){
     sessionStorage.clear();
     localStorage.clear();

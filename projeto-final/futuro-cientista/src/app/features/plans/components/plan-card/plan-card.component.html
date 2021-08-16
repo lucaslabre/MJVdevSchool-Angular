@@ -3,6 +3,6 @@
     <p class="price-card">{{ plan.price | currency }}</p>
     <mat-card-content >{{ plan.description }}</mat-card-content>
     <mat-card-actions>
-        <button mat-button>Contratar</button>
+        <button mat-button (click)="isLoggedIn()">Contratar</button>
     </mat-card-actions>
 </mat-card>
