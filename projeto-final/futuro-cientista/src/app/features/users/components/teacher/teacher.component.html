@@ -1,0 +1,29 @@
+
+<mat-accordion *ngIf='user'>
+    <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+            <mat-panel-title class="content">
+            {{ user.name }}
+            </mat-panel-title>
+            <mat-panel-description class="content">
+            {{user.validRegistration ? 'Ativo' : 'Inativo'}}
+            </mat-panel-description>
+            <mat-panel-description class="content">
+                Aulas restantes
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Plano ouro
+                </mat-panel-title>
+                <mat-panel-description>
+                    <span>faltam 2 aulas</span>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        
+    </mat-expansion-panel>
+</mat-accordion>

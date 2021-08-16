@@ -6,6 +6,15 @@ import { RouterModule } from '@angular/router';
 import { GreenDirective } from './directives/green.directive';
 import { CpfPipe } from './pipes/cpf.pipe';
 
+/**
+ * Imports Angular Material Modules
+ */
+ import {MatExpansionModule} from '@angular/material/expansion';
+
+ const materialModules = [
+  MatExpansionModule
+ ]
+
 const components = [
   HeaderComponent,
   FooterComponent
@@ -23,12 +32,14 @@ const pipes = [CpfPipe];
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ...materialModules
   ],
   exports: [
     ...components,
     ...directives,
-    ...pipes
+    ...pipes,
+    ...materialModules
   ]
 })
 export class SharedModule { }
