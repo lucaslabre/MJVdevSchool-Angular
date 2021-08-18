@@ -1,4 +1,4 @@
-import { Package } from "./package.model";
+import { Plan } from "../../plans/model/plan.model";
 
 export interface User {
     id: number;
@@ -10,5 +10,5 @@ export interface User {
     userType: "teacher" | "student";
     validRegistration: boolean,
     students?: Array<User>
-    packageContrated?: Package
+    packageContrated?: Plan
 }

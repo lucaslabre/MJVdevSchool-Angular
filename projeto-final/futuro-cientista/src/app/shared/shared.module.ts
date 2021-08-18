@@ -22,6 +22,7 @@ registerLocaleData(localePt, 'pt');
  import {MatFormFieldModule} from '@angular/material/form-field';
  import {MatInputModule} from '@angular/material/input';
  import {MatSelectModule} from '@angular/material/select';
+import { PercentPipe } from './pipes/percent.pipe';
 
  const materialModules = [
   MatExpansionModule,
@@ -41,7 +42,7 @@ const components = [
 
 const directives = [GreenDirective];
 
-const pipes = [CpfPipe];
+const pipes = [CpfPipe, PercentPipe];
 
 @NgModule({
   declarations: [

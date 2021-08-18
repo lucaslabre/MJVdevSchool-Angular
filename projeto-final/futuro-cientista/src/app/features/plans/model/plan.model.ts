@@ -3,5 +3,5 @@ export interface Plan {
     name: string,
     price: number,
     description: string,
-    discount?: number
+    discount: number
 }

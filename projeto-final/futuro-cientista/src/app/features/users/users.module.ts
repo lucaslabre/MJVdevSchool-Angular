@@ -10,6 +10,7 @@ import { TeacherPageComponent } from './pages/teacher-page/teacher-page.componen
 import { TeacherListComponent } from './components/teacher-list/teacher-list.component';
 import { TeacherComponent } from './components/teacher/teacher.component';
 import { RegisterStudentPageComponent } from './pages/register-student-page/register-student-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +28,8 @@ import { RegisterStudentPageComponent } from './pages/register-student-page/regi
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class UsersModule { }

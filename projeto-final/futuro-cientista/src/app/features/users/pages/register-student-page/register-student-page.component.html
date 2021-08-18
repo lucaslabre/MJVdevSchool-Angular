@@ -1,18 +1,18 @@
 <app-header></app-header>
-
+{{addStudentForm.value | json}}
 <div class="container">
-    <form class="center-form" >
+    <form class="center-form" [formGroup]="addStudentForm" (submit)="onSubmit(addStudentForm)">
         <h2>Registro do aluno</h2>
     
         <mat-form-field appearance="fill">
             <mat-label>Nome</mat-label>
-            <input matInput>
+            <input matInput formControlName="name">
         </mat-form-field>
 
         <div class="lateral-direction">
             <mat-form-field appearance="fill" class="right-space">
                 <mat-label>Plano</mat-label>
-                <mat-select>
+                <mat-select formControlName="plan" >
                     <mat-option 
                     *ngFor="let plan of plans"
                     [value]='plan.name'
@@ -22,30 +22,31 @@
             
             <mat-form-field appearance="fill" class="right-space">
                 <mat-label>Valor</mat-label>
-                <input matInput [value]="plan?.price">
+                <input matInput [value]="plan?.price | currency" formControlName="price">
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="fill" >
                 <mat-label>Desconto</mat-label>
-                <input matInput [value]="plan?.discount">
+                <input matInput [value]="plan?.discount | percent" formControlName="discount">
             </mat-form-field>
         </div>
 
         <div class="lateral-direction">
             <mat-form-field appearance="fill" class="right-space">
                 <mat-label>Valor Total</mat-label>
-                <input matInput>
+                <input matInput formControlName="total" [value]="totalValue | currency">
             </mat-form-field>
     
             <mat-form-field appearance="fill">
                 <mat-label>Data Início</mat-label>
-                <input matInput>
+                <input matInput type="date" formControlName="initialDate" >
             </mat-form-field>
         </div>
 
         <div class="add-student-button">
             <button mat-raised-button
-            type="submit">Adicionar Estudante</button>
+            type="submit"
+            [disabled]="addStudentForm.invalid">Adicionar Estudante</button>
         </div>
 
     </form>

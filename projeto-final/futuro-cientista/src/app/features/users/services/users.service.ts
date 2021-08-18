@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
 import * as moment from 'moment';
-import { Package } from '../model/package.model';
 
 @Injectable({
   providedIn: 'root'
@@ -85,8 +84,7 @@ export class UsersService {
       dateToday,
       'http://www.escolapaideia.com.br/img/aluno.png',
       'student',
-      true,
-      []
+      true
     )
   }
 
@@ -135,8 +133,7 @@ export class UsersService {
     inclusionDate: Date | string,
     image: string,
     userType: "teacher" | "student",
-    validRegistration: boolean,
-    students: Array<User>
+    validRegistration: boolean
   ): User{
     return {
       id,
@@ -146,8 +143,7 @@ export class UsersService {
       inclusionDate,
       image,
       userType,
-      validRegistration,
-      students
+      validRegistration
     }
   }
 

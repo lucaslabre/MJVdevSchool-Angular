@@ -70,8 +70,7 @@ export class RegisterUserPageComponent implements OnInit {
       this.user.inclusionDate,
       this.user.image='http://www.escolapaideia.com.br/img/aluno.png',
       formValue.userType,
-      this.user.validRegistration,
-      this.user.students = []
+      this.user.validRegistration
     );
     this.usersService.createUser(user);
     alert(`Parabéns, ${formValue.name.split(" ")[0]}! Você foi registrado com sucesso!`)
