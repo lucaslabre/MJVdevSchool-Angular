@@ -1,13 +1,40 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
 import * as moment from 'moment';
+import { Student } from '../model/student.model';
+import { Teacher } from '../model/teacher.model';
+import { BaseUser } from '../model/baseUser.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  private users: Array<User> = [
+  students: Array<Student> = [
+    {
+      id: 10,
+      name: 'Student 1',
+      email: 'test1@gmail.com',
+      password: "123",
+      inclusionDate: "2021-04-01",
+      image: 'http://www.escolapaideia.com.br/img/professores.png',
+      userType: "student",
+      validRegistration: true,
+      planContrated: {
+        id: 3,
+        name: 'plano prata',
+        price: 480,
+        description: '4 aulas de 2 horas por mês!',
+        discount: 15
+      }
+    }
+  ]
+
+  teachers: Array<Teacher> = [
+
+  ] 
+
+  private users: Array<Teacher | Student> = [
     {
       id: 1,
       name: 'Lucas',
@@ -16,7 +43,29 @@ export class UsersService {
       inclusionDate: "2021-04-01",
       image: 'http://www.escolapaideia.com.br/img/professores.png',
       userType: "teacher",
-      validRegistration: true
+      validRegistration: true,
+      students: [
+        {
+          id: 10,
+          name: 'Student 1',
+          email: 'test1@gmail.com',
+          password: "123",
+          inclusionDate: "2021-04-01",
+          image: 'http://www.escolapaideia.com.br/img/professores.png',
+          userType: "student",
+          validRegistration: true
+        },
+        {
+          id: 11,
+          name: 'Student 2',
+          email: 'test2@gmail.com',
+          password: "123",
+          inclusionDate: "2021-04-01",
+          image: 'http://www.escolapaideia.com.br/img/professores.png',
+          userType: "student",
+          validRegistration: true
+        },
+      ]
     },
     {
       id: 2,
@@ -27,7 +76,13 @@ export class UsersService {
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
       userType: "student",
       validRegistration: true,
-      // packageContrated: 1
+      planContrated: {
+        id: 3,
+        name: 'plano prata',
+        price: 480,
+        description: '4 aulas de 2 horas por mês!',
+        discount: 15
+      }
     },
     {
       id: 3,
@@ -38,7 +93,13 @@ export class UsersService {
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
       userType: "student",
       validRegistration: true,
-      // packageContrated: 2 
+      planContrated: {
+        id: 1,
+        name: 'plano básico',
+        price: 240,
+        description: '2 aulas de 2 horas por mês!',
+        discount: 5
+      } 
     },
     {
       id: 4,
@@ -48,7 +109,14 @@ export class UsersService {
       inclusionDate: "2021-06-21",
       image: 'http://www.escolapaideia.com.br/img/aluno.png',
       userType: "student",
-      validRegistration: false
+      validRegistration: false,
+      planContrated: {
+        id: 4,
+        name: 'plano ouro',
+        price: 720,
+        description: '4 aulas de 3 horas por mês!',
+        discount: 20
+      }
     },
     {
       id: 5,
@@ -63,12 +131,13 @@ export class UsersService {
     {
       id: 6,
       name: 'Wesley',
-      email: 'wesley@gmail.com',
+      email: 'teste@teste.com',
       password: "123",
       inclusionDate: "2021-08-01",
       image: 'http://www.escolapaideia.com.br/img/professores.png',
       userType: "teacher",
-      validRegistration: true
+      validRegistration: true,
+      students: []
     }
   ];
 
@@ -120,6 +189,12 @@ export class UsersService {
     return this.getUsers().filter((user) => user.userType === "student");
   }
 
+  // getStudentOfTeacher(id: number){
+  //   const currentTeacher = this.getUserById(id);
+  //   const studentsOfTheacher = currentTeacher.student
+  //   return this.getUsers().filter((user) => user.userType === "student");
+  // }
+
   createUser(user: User){
     this.users.push(user);
     return this.users;
@@ -134,16 +209,30 @@ export class UsersService {
     image: string,
     userType: "teacher" | "student",
     validRegistration: boolean
-  ): User{
-    return {
+  ): User {
+    const baseUser: BaseUser = {
       id,
       name,
       email,
       password,
       inclusionDate,
       image,
-      userType,
+      // userType,
       validRegistration
+    }
+    if(userType === 'student'){
+      return {
+        ...baseUser,
+        userType: userType,
+        planContrated: undefined
+      }
+    }
+    else {
+      return {
+        ...baseUser,
+        userType: userType,
+        students: []
+      }
     }
   }
 

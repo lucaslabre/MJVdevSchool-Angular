@@ -11,6 +11,8 @@ import { TeacherListComponent } from './components/teacher-list/teacher-list.com
 import { TeacherComponent } from './components/teacher/teacher.component';
 import { RegisterStudentPageComponent } from './pages/register-student-page/register-student-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StudentListComponent } from './components/student-list/student-list.component';
+import { StudentComponent } from './components/student/student.component';
 
 
 
@@ -23,7 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     TeacherPageComponent,
     TeacherListComponent,
     TeacherComponent,
-    RegisterStudentPageComponent
+    RegisterStudentPageComponent,
+    StudentListComponent,
+    StudentComponent
   ],
   imports: [
     CommonModule,

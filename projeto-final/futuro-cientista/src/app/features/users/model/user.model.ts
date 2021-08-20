@@ -1,14 +1,4 @@
-import { Plan } from "../../plans/model/plan.model";
+import { Student } from "./student.model";
+import { Teacher } from "./teacher.model";
 
-export interface User {
-    id: number;
-    name: string;
-    email: string;
-    password: string;
-    inclusionDate: Date | string;
-    image?: string;
-    userType: "teacher" | "student";
-    validRegistration: boolean,
-    students?: Array<User>
-    packageContrated?: Plan
-}
+export type User = Student | Teacher

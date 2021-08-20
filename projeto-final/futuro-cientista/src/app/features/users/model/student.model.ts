@@ -1,6 +1,7 @@
 import { Plan } from "../../plans/model/plan.model";
-import { User } from "./user.model";
+import { BaseUser } from "./baseUser.model";
 
-export interface Student extends User {
-    packageContrated: Plan
+export interface Student extends BaseUser {
+    userType: "student",
+    planContrated?: Plan
 }

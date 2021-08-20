@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faFacebookF, faGooglePlusG, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faLock, faUnlockAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { CurrentUserService } from 'src/app/features/users/services/current-user.service';
 import { UsersService } from 'src/app/features/users/services/users.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class LoginUserPageComponent implements OnInit {
   
   constructor(
     private usersService: UsersService,
-    private router: Router
+    private router: Router,
+    private currentUserService: CurrentUserService
   ) { }
 
   ngOnInit(): void {
@@ -36,10 +38,9 @@ export class LoginUserPageComponent implements OnInit {
     }
     if (user.userType === "teacher") {
       this.router.navigateByUrl(`/teacher/${user.id}`);
-      return sessionStorage.setItem('currentUser', JSON.stringify(user));
+      this.currentUserService.setCurrentUser(user);
     }
-    this.router.navigateByUrl('/users');
-    return sessionStorage.setItem('currentUser', JSON.stringify(user));
+    return this.router.navigateByUrl('/users');
   }
 
   locked(){

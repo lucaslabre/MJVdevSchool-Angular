@@ -1,5 +1,7 @@
-import { User } from "./user.model";
+import { BaseUser } from "./baseUser.model";
+import { Student } from "./student.model";
 
-export interface Teacher extends User{
-    students: Array<User>
+export interface Teacher extends BaseUser{
+    userType: "teacher",
+    students: Array<Student>
 }
