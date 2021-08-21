@@ -1,7 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Plan } from 'src/app/features/plans/model/plan.model';
 import { PlansService } from 'src/app/features/plans/services/plans.service';
+import { User } from '../../model/user.model';
+import { CurrentUserService } from '../../services/current-user.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   templateUrl: './register-student-page.component.html',
@@ -25,7 +30,10 @@ export class RegisterStudentPageComponent implements OnInit {
 
 
   constructor(
-    private plansService: PlansService
+    private plansService: PlansService,
+    private currentUserService: CurrentUserService,
+    private userService: UsersService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -45,10 +53,25 @@ export class RegisterStudentPageComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    console.log(form.value);
-    const teacher = sessionStorage.getItem('currentUser');
-    if (teacher)
-      console.log(JSON.parse(teacher));
+    const currentUser = this.currentUserService.getCurrentUser();
+
+    const addedStudent: User = this.userService.createUserObject(
+      this.userService.generateNextId(),
+      this.addStudentForm.get('name')?.value,
+      this.addStudentForm.get('email')?.value,
+      '123456',
+      this.addStudentForm.get('initialDate')?.value,
+      'http://www.escolapaideia.com.br/img/aluno.png',
+      'student',
+      true
+    )
+
+    if (currentUser?.userType === "teacher" && addedStudent.userType === "student") {
+      addedStudent.planContrated = this.plan;
+      currentUser.students.push(addedStudent);
+      alert(`${addedStudent.name.split(" ")[0]} cadastrado com sucesso!`);
+      this.router.navigateByUrl(`/teacher/${currentUser.id}}`);
+    }
   }
 
 }

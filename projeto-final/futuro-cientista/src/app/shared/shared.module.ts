@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { GreenDirective } from './directives/green.directive';
 import { CpfPipe } from './pipes/cpf.pipe';
+import { PercentPipe } from './pipes/percent.pipe';
 
 import localePt from '@angular/common/locales/pt';
 import {registerLocaleData} from '@angular/common';
@@ -22,7 +23,7 @@ registerLocaleData(localePt, 'pt');
  import {MatFormFieldModule} from '@angular/material/form-field';
  import {MatInputModule} from '@angular/material/input';
  import {MatSelectModule} from '@angular/material/select';
-import { PercentPipe } from './pipes/percent.pipe';
+
 
  const materialModules = [
   MatExpansionModule,

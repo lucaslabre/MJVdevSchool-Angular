@@ -22,7 +22,7 @@ export class RegisterUserPageComponent implements OnInit {
 
   type: string = "password";
   invalidRegistry: boolean = false;
-  user: User = this.usersService.getDefaultStudent();
+  user: User = this.usersService.getDefaultUser();
 
   userForm = new FormGroup({
      name: new FormControl('', [Validators.required]),

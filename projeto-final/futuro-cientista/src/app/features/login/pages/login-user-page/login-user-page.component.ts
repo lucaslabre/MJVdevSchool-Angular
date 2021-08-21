@@ -38,7 +38,8 @@ export class LoginUserPageComponent implements OnInit {
     }
     if (user.userType === "teacher") {
       this.router.navigateByUrl(`/teacher/${user.id}`);
-      this.currentUserService.setCurrentUser(user);
+      sessionStorage.setItem('currentUser', JSON.stringify(user));
+      return this.currentUserService.setCurrentUser(user);
     }
     return this.router.navigateByUrl('/users');
   }
