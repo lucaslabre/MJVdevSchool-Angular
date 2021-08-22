@@ -11,7 +11,7 @@ export class CurrentUserService {
 
   constructor() { }
 
-  setCurrentUser(user: User){
+  setCurrentUser(user: User | null){
     this.currentUser = user;
     // this.currentUser = JSON.parse(user);
   }

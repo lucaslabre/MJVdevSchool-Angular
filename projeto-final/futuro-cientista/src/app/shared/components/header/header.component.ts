@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
   exit(){
     sessionStorage.clear();
     localStorage.clear();
+    this.currentUserService.setCurrentUser(null);
     this.router.navigateByUrl("/login");
   }
 

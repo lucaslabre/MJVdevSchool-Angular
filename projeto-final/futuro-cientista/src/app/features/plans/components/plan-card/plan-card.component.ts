@@ -22,7 +22,7 @@ export class PlanCardComponent implements OnInit {
   isLoggedIn(){
     const currentUser = sessionStorage.getItem('currentUser');
     if (!currentUser) {
-       return this.router.navigateByUrl('/login');
+       return this.router.navigateByUrl('/register');
     }
     return console.log(this.plan);
   }
